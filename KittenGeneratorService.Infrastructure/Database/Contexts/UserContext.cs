@@ -17,15 +17,6 @@ namespace KittenGeneratorService.Infrastructure.Database.Contexts
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.HasPostgresExtension("uuid-ossp");
-
-            //modelBuilder.Entity<User>(
-            //    p =>
-            //    {
-            //        p.HasKey(nameof(User.Id));
-            //        p.HasIndex(e => e.Username).IsUnique();
-            //        p.HasIndex(e => e.Email).IsUnique();
-            //    });
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(UserContext).Assembly);
         }
     }

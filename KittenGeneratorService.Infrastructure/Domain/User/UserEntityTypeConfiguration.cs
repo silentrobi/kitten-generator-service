@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using KittenGeneratorService.Domain.ValueObjects;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
 
 namespace KittenGeneratorService.Infrastructure.Domain.User
 {
@@ -10,7 +12,8 @@ namespace KittenGeneratorService.Infrastructure.Domain.User
         public void Configure(EntityTypeBuilder<KittenGeneratorService.Domain.Entities.User> builder)
         {
             builder.ToTable(TABLE_USER);
-            builder.HasKey(nameof(KittenGeneratorService.Domain.Entities.User.Id));
+            builder.Property(e => e.Role).HasConversion(
+                v => v.ToString(), v => (Role)Enum.Parse(typeof(Role), v));
             builder.HasIndex(e => e.Username).IsUnique();
             builder.HasIndex(e => e.Email).IsUnique();
         }

@@ -1,4 +1,7 @@
+using Autofac;
 using KittenGeneratorService.Infrastructure.Database.Contexts;
+using KittenGeneratorService.Infrastructure.Domain;
+using KittenGeneratorService.Infrastructure.Processing.Mediator;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -43,6 +46,12 @@ namespace KittenGeneratorService.Api
                         npSqlOptions.CommandTimeout(3300);
                     });
             });
+        }
+
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            builder.RegisterModule(new DomainModule());
+            builder.RegisterModule(new MediatorModule());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
