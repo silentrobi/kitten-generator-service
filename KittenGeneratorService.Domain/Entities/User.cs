@@ -1,5 +1,4 @@
 ﻿using KittenGeneratorService.Domain.SeedWork;
-using KittenGeneratorService.Domain.ValueObjects;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -11,7 +10,7 @@ namespace KittenGeneratorService.Domain.Entities
         {
 
         }
-        private User(string userName, string password, string email, Role role)
+        private User(string userName, string password, string email, string role)
         {
             Id = Guid.NewGuid();
             Username = userName;
@@ -19,12 +18,12 @@ namespace KittenGeneratorService.Domain.Entities
             Email = email;
             Role = role;
         }
-        public static User Create(string userName, string password, string email, Role role)
+        public static User Create(string userName, string password, string email, string role)
         {
             return  new User(userName, password, email, role);
         }
 
-        public void Update(string username, string password, Role role)
+        public void Update(string username, string password, string role)
         {
             Username = username;
             Role = role;
@@ -41,6 +40,6 @@ namespace KittenGeneratorService.Domain.Entities
         public string Email { get; set; }
 
         [Required]
-        public Role  Role { get; set; }
+        public string  Role { get; set; }
     }
 }

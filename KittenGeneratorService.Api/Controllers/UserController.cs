@@ -56,5 +56,13 @@ namespace KittenGeneratorService.Api.Controllers
 
             return Ok();
         }
+
+        [HttpPost("authenticate")]
+        public async Task<IActionResult> Authenticate(AuthenticateUser authenticateUser)
+        {
+            var result = await Mediator.Send(authenticateUser);
+
+            return Ok(result);
+        }
     }
 }

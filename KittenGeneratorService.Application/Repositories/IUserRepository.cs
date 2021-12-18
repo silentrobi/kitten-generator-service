@@ -6,5 +6,6 @@ namespace KittenGeneratorService.Application.Repositories
 {
     public interface IUserRepository : ICrudRepository<User, Guid>
     {
+        User FindByUsernameAndPassword(string username, string password);
     }
 }

@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace KittenGeneratorService.Infrastructure.Database.Migrations
 {
     [DbContext(typeof(UserContext))]
-    [Migration("20211218114035_Initial")]
+    [Migration("20211218154243_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

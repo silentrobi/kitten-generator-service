@@ -1,9 +1,4 @@
-﻿using KittenGeneratorService.Domain.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace KittenGeneratorService.Application.Dtos
 {
@@ -13,7 +8,7 @@ namespace KittenGeneratorService.Application.Dtos
         public string Username { get; set; }
 
         public string Email { get; set; }
-        public Role Role { get; set; }
+        public string Role { get; set; }
 
         public DateTime CreatedDate { get; set; }
     }

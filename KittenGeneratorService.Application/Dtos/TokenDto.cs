@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KittenGeneratorService.Domain.ValueObjects
+namespace KittenGeneratorService.Application.Dtos
 {
-    public enum Role
+    public class TokenDto
     {
-        ADMIN,
-        NORMAL_USER
+        public string Token { get; set; }
     }
 }
