@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31911.196
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KittenGeneratorService.Api", "KittenGeneratorService.Api\KittenGeneratorService.Api.csproj", "{35B67C2A-5533-47AA-8EAF-465248C8455B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KittenGeneratorService.Api", "src\KittenGeneratorService.Api\KittenGeneratorService.Api.csproj", "{35B67C2A-5533-47AA-8EAF-465248C8455B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KittenGeneratorService.Domain", "KittenGeneratorService.Domain\KittenGeneratorService.Domain.csproj", "{74DF7A1A-F65E-4D6C-BD74-C45ABD2291B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KittenGeneratorService.Domain", "src\KittenGeneratorService.Domain\KittenGeneratorService.Domain.csproj", "{74DF7A1A-F65E-4D6C-BD74-C45ABD2291B8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KittenGeneratorService.Infrastructure", "KittenGeneratorService.Infrastructure\KittenGeneratorService.Infrastructure.csproj", "{F8C0AA91-47B1-4665-979B-31EF7F9A5BB3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KittenGeneratorService.Infrastructure", "src\KittenGeneratorService.Infrastructure\KittenGeneratorService.Infrastructure.csproj", "{F8C0AA91-47B1-4665-979B-31EF7F9A5BB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KittenGeneratorService.Application", "KittenGeneratorService.Application\KittenGeneratorService.Application.csproj", "{6099A6CB-B81D-48FC-8E67-65C67CD1BD4F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KittenGeneratorService.Application", "src\KittenGeneratorService.Application\KittenGeneratorService.Application.csproj", "{6099A6CB-B81D-48FC-8E67-65C67CD1BD4F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

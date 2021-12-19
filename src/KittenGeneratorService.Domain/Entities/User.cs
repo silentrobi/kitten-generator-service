@@ -8,7 +8,6 @@ namespace KittenGeneratorService.Domain.Entities
     {
         private User()
         {
-
         }
         private User(string userName, string password, string email, string role)
         {

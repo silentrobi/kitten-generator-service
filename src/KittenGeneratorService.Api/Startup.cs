@@ -111,6 +111,16 @@ namespace KittenGeneratorService.Api
             {
                 endpoints.MapControllers();
             });
+
+            AutoMigrate(app);
+        }
+
+        private void AutoMigrate(IApplicationBuilder app)
+        {
+            using var serviceScope = app.ApplicationServices.CreateScope();
+            using var context = serviceScope.ServiceProvider.GetService<UserContext>();
+
+            context.Database.Migrate();
         }
     }
 }
