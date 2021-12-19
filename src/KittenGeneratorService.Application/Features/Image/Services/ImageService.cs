@@ -1,20 +1,17 @@
 ﻿using KittenGeneratorService.Application.Exceptions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace KittenGeneratorService.Application.Features.Image.Services
 {
     public class ImageService
     {
-        private const string  BASE_URL = "https://cataas.com/";
+        private readonly string  BASE_URL = "https://cataas.com/";
         private readonly HttpClient Client = new();
         public async Task<byte[]> GetCatImageAsync()
         {
-            byte[] image = null;
+            byte[] image;
 
             Client.BaseAddress = new Uri(BASE_URL);
             Client.DefaultRequestHeaders.Accept.Clear();
