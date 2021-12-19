@@ -1,7 +1,7 @@
 ﻿using KittenGeneratorService.Api.Requests;
-using KittenGeneratorService.Application.Commands;
-using KittenGeneratorService.Application.Queries;
-using Microsoft.AspNetCore.Http;
+using KittenGeneratorService.Application.Features.User.Commands;
+using KittenGeneratorService.Application.Features.User.Queries;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -25,6 +25,7 @@ namespace KittenGeneratorService.Api.Controllers
             return Ok(result);
         }
 
+        [Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme, Roles = "admin")]
         [HttpGet]
         public async Task<IActionResult> Get()
         {
@@ -34,6 +35,7 @@ namespace KittenGeneratorService.Api.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Update(Guid id, [FromBody] UpdateUserRequest updateUserRequest)
         {
             var updateUser = new UpdateUser()
@@ -50,6 +52,7 @@ namespace KittenGeneratorService.Api.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Delete(Guid id)
         {
            await Mediator.Send(new DeleteUser() { Id= id});
@@ -57,6 +60,7 @@ namespace KittenGeneratorService.Api.Controllers
             return Ok();
         }
 
+        [AllowAnonymous]
         [HttpPost("authenticate")]
         public async Task<IActionResult> Authenticate(AuthenticateUser authenticateUser)
         {

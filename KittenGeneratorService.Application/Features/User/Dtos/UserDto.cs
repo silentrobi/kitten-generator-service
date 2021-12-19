@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace KittenGeneratorService.Application.Dtos
+namespace KittenGeneratorService.Application.Features.User.Dtos
 {
     public class UserDto
     {

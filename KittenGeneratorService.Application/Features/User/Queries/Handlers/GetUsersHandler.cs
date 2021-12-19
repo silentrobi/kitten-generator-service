@@ -1,5 +1,4 @@
-﻿using KittenGeneratorService.Application.Dtos;
-using KittenGeneratorService.Application.Repositories;
+﻿using KittenGeneratorService.Application.Features.User.Dtos;
 using KittenGeneratorService.Application.SeedWork;
 using System;
 using System.Collections.Generic;
@@ -7,8 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using KittenGeneratorService.Application.Features.User.Repositories;
 
-namespace KittenGeneratorService.Application.Queries.Handlers
+namespace KittenGeneratorService.Application.Features.User.Queries.Handlers
 {
     public class GetUsersHandler : IQueryHandler<GetUsers, IEnumerable<UserDto>>
     {

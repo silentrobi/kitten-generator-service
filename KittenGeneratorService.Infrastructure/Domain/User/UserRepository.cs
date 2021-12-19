@@ -1,4 +1,4 @@
-﻿using KittenGeneratorService.Application.Repositories;
+﻿using KittenGeneratorService.Application.Features.User.Repositories;
 using KittenGeneratorService.Infrastructure.Database.Contexts;
 using KittenGeneratorService.Infrastructure.Domain.SeedWork;
 using System;

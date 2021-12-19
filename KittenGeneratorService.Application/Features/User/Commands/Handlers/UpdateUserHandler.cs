@@ -1,10 +1,10 @@
-﻿using KittenGeneratorService.Application.Repositories;
+﻿using KittenGeneratorService.Application.Features.User.Repositories;
 using KittenGeneratorService.Application.SeedWork;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace KittenGeneratorService.Application.Commands.Handlers
+namespace KittenGeneratorService.Application.Features.User.Commands.Handlers
 {
     public class UpdateUserHandler : ICommandHandler<UpdateUser, Guid>
     {

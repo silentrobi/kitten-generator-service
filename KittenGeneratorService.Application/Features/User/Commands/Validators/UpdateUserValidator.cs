@@ -1,17 +1,13 @@
 ﻿using FluentValidation;
 using System.Collections.Generic;
 
-namespace KittenGeneratorService.Application.Commands.Validators
+namespace KittenGeneratorService.Application.Features.User.Commands.Validators
 {
-    public class CreateUserValidator : AbstractValidator<CreateUser>
+    public class UpdateUserValidator : AbstractValidator<UpdateUser>
     {
-        public CreateUserValidator()
+        public UpdateUserValidator()
         {
             List<string> roles = new() { "admin", "user" };
-
-            RuleFor(model => model.Email)
-                .Cascade(CascadeMode.Stop)
-                .EmailAddress().WithMessage("Invalid email format");
 
             RuleFor(model => model.Password)
                 .Cascade(CascadeMode.Stop)

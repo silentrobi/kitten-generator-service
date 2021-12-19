@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KittenGeneratorService.Application.Dtos
+namespace KittenGeneratorService.Application.Features.User.Dtos
 {
     public class TokenDto
     {

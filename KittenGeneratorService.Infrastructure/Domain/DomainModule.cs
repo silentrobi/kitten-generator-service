@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using KittenGeneratorService.Application.Repositories;
+using KittenGeneratorService.Application.Features.User.Repositories;
 using KittenGeneratorService.Application.SeedWork;
 using KittenGeneratorService.Infrastructure.Domain.SeedWork;
 using KittenGeneratorService.Infrastructure.Domain.User;

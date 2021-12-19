@@ -1,5 +1,5 @@
-﻿using KittenGeneratorService.Application.Dtos;
-using KittenGeneratorService.Application.Repositories;
+﻿using KittenGeneratorService.Application.Features.User.Dtos;
+using KittenGeneratorService.Application.Features.User.Repositories;
 using KittenGeneratorService.Application.SeedWork;
 using KittenGeneratorService.Application.Utils;
 using System;
@@ -8,7 +8,7 @@ using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace KittenGeneratorService.Application.Commands.Handlers
+namespace KittenGeneratorService.Application.Features.User.Commands.Handlers
 {
     public class AuthenticateUserHandler : ICommandHandler<AuthenticateUser, TokenDto>
     {

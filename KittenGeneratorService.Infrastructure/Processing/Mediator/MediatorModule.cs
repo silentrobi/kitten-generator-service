@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using KittenGeneratorService.Application.Commands;
+using KittenGeneratorService.Application.Features.User.Commands;
 using MediatR;
 using System.Reflection;
 
