@@ -15,7 +15,7 @@ The server will run with port `8000` on `http` server.
 - Entity Framework Core - Code First
 - Repository Pattern - Generic
 - DDD
-- MediatR Pipeline Logging & Validation
+- MediatR Pipeline & Validation
 - Swagger UI
 - PostgreSQL
 - Fluent Validation
