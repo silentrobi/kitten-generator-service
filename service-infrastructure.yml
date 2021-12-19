@@ -6,12 +6,14 @@ services:
     build:
       dockerfile: ./Dockerfile
     ports:
-      - "5000:8000"
+      - "5000:80"
     networks:
       - default
     links:
       - postgres
-    
+    environment:
+      CONNECTION_STRING: "Server=postgres;Port=5432;Database=identitydb;User ID=postgres;Password=123456;"
+
   postgres:
     container_name: postgres
     image: postgres
