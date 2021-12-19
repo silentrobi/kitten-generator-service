@@ -1,8 +1,12 @@
 # Kitten Image Generator
 
-**Migration Command**
-- Visual Studio: `Update-database`
-- CLI: `dotnet ef database update`
+## Setup steps
+1. Run the following commands: `docker-compose -f ./service-infrastructure.yml up -d`.
+ This will install all the required services along with the **kittenservice**. 
+The server will run with port `8000` on `http` server.
+
+2. If you want to run from local machine then set The following `env` variable:  
+`CONNECTION_STRING="Server=localhost;Port=5432;Database=identitydb;User ID=postgres;Password=123456;"`
 
 ## Features
 - Onion Architecture
