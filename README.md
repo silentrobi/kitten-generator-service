@@ -43,7 +43,7 @@ The server will run with port `8000` on `http` server.
 
 
 ## Description
-In order to get generated cat, user need to authenticate using `POST /api/users/authenticate` route. This will return JWT that includes user claims. I tried to implement RBAC to api routes. There are two roles avilable: `admin` and `user`. 
+In order to get generated cat, user need to authenticate using `POST /api/users/authenticate` route. This will return JWT that includes user claims. I tried to implement RBAC to api routes. There are two roles available: `admin` and `user`. 
 
 Steps to follow:
 1. Create user (admin/user)
@@ -52,6 +52,7 @@ Steps to follow:
 
 **Some Notes**
 1. If auto migration doesn't work then update database manually using this command: 
+
         - Visual Studio: `Update-database`
         - CLI: `dotnet ef database update`
 2. Project is tested manually. No test automation (like Unit test, Integration test etc.) included in the project.
