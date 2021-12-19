@@ -2,7 +2,7 @@
 using KittenGeneratorService.Application.Features.User.Repositories;
 using KittenGeneratorService.Application.SeedWork;
 using KittenGeneratorService.Application.Utils;
-using System;
+using Microsoft.Extensions.Configuration;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Threading;
@@ -13,10 +13,12 @@ namespace KittenGeneratorService.Application.Features.User.Commands.Handlers
     public class AuthenticateUserHandler : ICommandHandler<AuthenticateUser, TokenDto>
     {
         private readonly IUserRepository _userRepository;
+        private readonly IConfiguration _configuration;
 
-        public AuthenticateUserHandler(IUserRepository userRepository)
+        public AuthenticateUserHandler(IUserRepository userRepository, IConfiguration configuration)
         {
             _userRepository = userRepository;
+            _configuration = configuration;
         }
 
         public async Task<TokenDto> Handle(AuthenticateUser command, CancellationToken cancellationToken)
@@ -36,7 +38,7 @@ namespace KittenGeneratorService.Application.Features.User.Commands.Handlers
 
             return new TokenDto()
             {
-                Token = JwtUtil.GetJwtTokenString(user.Id.ToString(), claims)
+                Token = JwtUtil.GetJwtTokenString(_configuration["Jwt:Key"], user.Id.ToString(), claims)
             };
         }
     }

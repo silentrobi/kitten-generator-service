@@ -5,13 +5,14 @@ using System.Threading.Tasks;
 
 namespace KittenGeneratorService.Api.Controllers
 {
-    [Route("api/cat/image")]
+    [Route("api/cat")]
     [Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     public class ImageGeneratorController : BaseApiController
     {
 
         [HttpGet]
+        [Authorize(Roles = "admin,user")]
         public async Task<IActionResult> GenerateVerticalFlippedCatImage()
         {
             var result = await Mediator.Send(new GenerateVerticalFlippedImage());

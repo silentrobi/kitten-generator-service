@@ -10,7 +10,9 @@ namespace KittenGeneratorService.Application.Utils
     public class JwtUtil
     {
 
-        private readonly static string Secret = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+
+        //private readonly static string Secret = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
   
         /// <summary>
         /// Returns a token string from base claims
@@ -19,11 +21,12 @@ namespace KittenGeneratorService.Application.Utils
         /// <param name="additionalClaims"></param>
         /// <returns></returns>
         public static string GetJwtTokenString(
+            string secret,
             string id,
             Claim[] additionalClaims = null)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(Secret);
+            var key = Encoding.ASCII.GetBytes(secret);
 
             var claims = new[]
             {

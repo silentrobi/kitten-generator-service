@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace KittenGeneratorService.Api.Controllers
 {
+    [Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme)]
     [Route("api/users")]
     [ApiController]
     public class UserController : BaseApiController
@@ -18,6 +19,7 @@ namespace KittenGeneratorService.Api.Controllers
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Create([FromBody] CreateUser request)
         {
             var result = await Mediator.Send(request);
@@ -25,7 +27,7 @@ namespace KittenGeneratorService.Api.Controllers
             return Ok(result);
         }
 
-        [Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme, Roles = "admin")]
+        [Authorize(Roles = "admin")]
         [HttpGet]
         public async Task<IActionResult> Get()
         {
