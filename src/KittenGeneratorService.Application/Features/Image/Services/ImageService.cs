@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KittenGeneratorService.Application.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -19,9 +20,14 @@ namespace KittenGeneratorService.Application.Features.Image.Services
             Client.DefaultRequestHeaders.Accept.Clear();
 
             HttpResponseMessage response = await Client.GetAsync("cat");
+
             if (response.IsSuccessStatusCode)
             {
                 image = await response.Content.ReadAsByteArrayAsync();
+            }
+            else
+            {
+                throw new ExternalServiceException("Failed to get data");
             }
 
             return image;

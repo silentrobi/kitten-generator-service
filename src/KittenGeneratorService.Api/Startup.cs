@@ -12,12 +12,13 @@ using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using KittenGeneratorService.Api.Extensions;
+using System;
 
 namespace KittenGeneratorService.Api
 {
     public class Startup
     {
-        private const string CONNECTION_STRING_KEY = "DefaultConnection";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -56,11 +57,11 @@ namespace KittenGeneratorService.Api
                             new string[] {}
                     }
                 });
-        });
+            });
 
             services.AddDbContext<UserContext>(options =>
             {
-                options.UseNpgsql(Configuration.GetConnectionString(CONNECTION_STRING_KEY),
+                options.UseNpgsql(Environment.GetEnvironmentVariable("CONNECTION_STRING"),
                     npSqlOptions =>
                     {
                         npSqlOptions.CommandTimeout(3300);
@@ -106,6 +107,8 @@ namespace KittenGeneratorService.Api
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseErrorHandlingMiddleware();
 
             app.UseEndpoints(endpoints =>
             {

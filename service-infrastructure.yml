@@ -1,0 +1,49 @@
+version: "3.7"
+
+services:
+  kittenservice:
+    container_name: kittenservice
+    build:
+      dockerfile: ./Dockerfile
+    ports:
+      - "5000:8000"
+    networks:
+      - default
+    links:
+      - postgres
+    
+  postgres:
+    container_name: postgres
+    image: postgres
+    environment:
+      - POSTGRES_DB=identitydb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123456
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - default
+    restart: unless-stopped
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+    volumes:
+      - pgadmin:/root/.pgadmin
+    ports:
+      - "5050:80"
+    networks:
+      - default
+    restart: unless-stopped
+
+networks:
+  default:
+
+volumes:
+  postgres:
+  pgadmin:

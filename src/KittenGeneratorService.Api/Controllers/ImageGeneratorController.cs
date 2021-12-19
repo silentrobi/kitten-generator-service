@@ -11,6 +11,11 @@ namespace KittenGeneratorService.Api.Controllers
     public class ImageGeneratorController : BaseApiController
     {
 
+        /// <summary>
+        /// Generates a cat image upside-down
+        /// </summary>
+        /// <returns></returns>
+        /// <response code="200">Return cat image upside-down</response>
         [HttpGet]
         [Authorize(Roles = "admin,user")]
         public async Task<IActionResult> GenerateVerticalFlippedCatImage()

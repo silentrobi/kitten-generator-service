@@ -1,4 +1,5 @@
-﻿using KittenGeneratorService.Application.Features.User.Repositories;
+﻿using KittenGeneratorService.Application.Exceptions;
+using KittenGeneratorService.Application.Features.User.Repositories;
 using KittenGeneratorService.Application.SeedWork;
 using System;
 using System.Threading;
@@ -24,7 +25,7 @@ namespace KittenGeneratorService.Application.Features.User.Commands.Handlers
 
             if(user == null)
             {
-                //throw expection
+                throw new ItemNotFoundException("User is not found");
             }
 
             user.Update(command.Username, command.Password, command.Role);

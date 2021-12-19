@@ -1,4 +1,5 @@
-﻿using KittenGeneratorService.Application.Features.User.Repositories;
+﻿using KittenGeneratorService.Application.Exceptions;
+using KittenGeneratorService.Application.Features.User.Repositories;
 using KittenGeneratorService.Application.SeedWork;
 using MediatR;
 using System.Threading;
@@ -23,7 +24,7 @@ namespace KittenGeneratorService.Application.Features.User.Commands.Handlers
 
             if (user == null)
             {
-                //throw expection
+                throw new ItemNotFoundException("User is not found");
             }
 
             _userRepository.Delete(user);

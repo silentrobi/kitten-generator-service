@@ -14,7 +14,7 @@ namespace KittenGeneratorService.Api.Controllers
     public class UserController : BaseApiController
     {
         /// <summary>
-        /// Create a new department
+        /// Create a new user
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
@@ -27,6 +27,10 @@ namespace KittenGeneratorService.Api.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// get users
+        /// </summary>
+        /// <response code="200">Returns list of users</response>
         [Authorize(Roles = "admin")]
         [HttpGet]
         public async Task<IActionResult> Get()
@@ -36,6 +40,14 @@ namespace KittenGeneratorService.Api.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Update an user
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="updateUserRequest"></param>
+        /// <returns></returns>
+        /// <response code="200">Updates existing user</response>
+        /// <response code="400">If user not found</response>
         [HttpPut("{id}")]
         [Authorize(Roles = "admin")]
         public async Task<IActionResult> Update(Guid id, [FromBody] UpdateUserRequest updateUserRequest)
@@ -53,6 +65,13 @@ namespace KittenGeneratorService.Api.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Delete an user
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <response code="200">User is deleted</response>
+        /// <response code="400">If user not found</response>
         [HttpDelete("{id}")]
         [Authorize(Roles = "admin")]
         public async Task<IActionResult> Delete(Guid id)
