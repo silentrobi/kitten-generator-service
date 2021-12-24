@@ -9,12 +9,13 @@ The server will run with port `8000` on `http` server.
 `CONNECTION_STRING="Server=localhost;Port=5432;Database=identitydb;User ID=postgres;Password=123456;"`
 
 ## Features
+- .NET 5
 - Onion Architecture
 - CQRS pattern with MediatR library
 - Entity Framework Core - Code First
 - Repository Pattern - Generic
 - DDD
-- MediatR Pipeline Logging & Validation
+- MediatR Pipeline & Validation
 - Swagger UI
 - PostgreSQL
 - Fluent Validation
