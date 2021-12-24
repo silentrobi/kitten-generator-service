@@ -1,4 +1,5 @@
-﻿using KittenGeneratorService.Application.Features.User.Dtos;
+﻿using KittenGeneratorService.Application.Exceptions;
+using KittenGeneratorService.Application.Features.User.Dtos;
 using KittenGeneratorService.Application.Features.User.Repositories;
 using KittenGeneratorService.Application.SeedWork;
 using KittenGeneratorService.Application.Utils;
@@ -27,7 +28,7 @@ namespace KittenGeneratorService.Application.Features.User.Commands.Handlers
 
             if (user == null)
             {
-                // throw expetion
+                throw new UserAuthenticationFailException("Invalid user credential");
             }
 
             Claim[] claims = {

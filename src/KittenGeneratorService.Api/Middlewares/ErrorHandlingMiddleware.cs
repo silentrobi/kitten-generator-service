@@ -27,7 +27,7 @@ namespace KittenGeneratorService.Api.Middlewares
             {
                 var response = context.Response;
                 response.ContentType = "application/json";
-                var responseModel = new ErrorResponse(){ Succeeded = false, Message = error?.Message };
+                var responseModel = new ErrorResponse() { Succeeded = false, Message = error?.Message };
 
                 switch (error)
                 {
@@ -37,6 +37,10 @@ namespace KittenGeneratorService.Api.Middlewares
                         responseModel.Message = e.Message;
                         break;
                     case ItemNotFoundException e:
+                        response.StatusCode = (int)HttpStatusCode.BadRequest;
+                        responseModel.Message = e.Message;
+                        break;
+                    case UserAuthenticationFailException e:
                         response.StatusCode = (int)HttpStatusCode.BadRequest;
                         responseModel.Message = e.Message;
                         break;
