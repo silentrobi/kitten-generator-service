@@ -9,14 +9,10 @@ namespace KittenGeneratorService.Application.Utils
 {
     public class JwtUtil
     {
-
-
-
-        //private readonly static string Secret = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-  
         /// <summary>
         /// Returns a token string from base claims
         /// </summary>
+        /// <param name="secret"></param>
         /// <param name="id"></param>
         /// <param name="additionalClaims"></param>
         /// <returns></returns>

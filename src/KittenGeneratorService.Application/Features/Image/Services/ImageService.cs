@@ -7,7 +7,7 @@ namespace KittenGeneratorService.Application.Features.Image.Services
 {
     public class ImageService
     {
-        private readonly string  BASE_URL = "https://cataas.com/";
+        private readonly string BASE_URL = "https://cataas.com/";
         private readonly HttpClient Client = new();
         public async Task<byte[]> GetCatImageAsync()
         {

@@ -52,7 +52,6 @@ Steps to follow:
 
 **Some Notes**
 1. If auto migration doesn't work then update database manually using this command: 
-
         - Visual Studio: `Update-database`
         - CLI: `dotnet ef database update`
 2. Project is tested manually. No test automation (like Unit test, Integration test etc.) included in the project.

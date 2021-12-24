@@ -5,10 +5,8 @@ namespace KittenGeneratorService.Infrastructure.Database.Contexts
 {
     public class UserContext : DbContext
     {
-        internal const string TABLE_USER = "User";
         public UserContext(DbContextOptions options) : base(options)
         {
-
         }
 
         public DbSet<User> Users { get; set; }
